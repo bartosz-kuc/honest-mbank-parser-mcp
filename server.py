@@ -345,5 +345,10 @@ async def main():
         await server.run(read, write, server.create_initialization_options())
 
 
-if __name__ == "__main__":
+def sync_main():
+    """Sync entry point for console script."""
     asyncio.run(main())
+
+
+if __name__ == "__main__":
+    sync_main()

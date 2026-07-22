@@ -1,0 +1,18 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schemas/server.json",
+  "name": "mbank-parser-mcp",
+  "description": "Local MCP server that parses mBank CSV operation exports — fully offline, no bank connection.",
+  "repository": {
+    "url": "https://github.com/bartosz-kuc/mbank-parser-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registry_name": "pypi",
+      "name": "mbank-parser-mcp",
+      "version": "0.1.0",
+      "runtime_hint": "uvx"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mbank-parser-mcp"
+version = "0.1.0"
+description = "Local MCP server that parses mBank CSV operation exports — fully offline, no bank connection."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "Bartosz Kuć", email = "firma@bartosza.pl" }]
+keywords = ["mcp", "mbank", "csv", "parsing", "offline", "finance"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "mcp>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/bartosz-kuc/mbank-parser-mcp"
+Repository = "https://github.com/bartosz-kuc/mbank-parser-mcp"
+Issues = "https://github.com/bartosz-kuc/mbank-parser-mcp/issues"
+
+[project.scripts]
+mbank-parser-mcp = "mbank_parser_mcp:sync_main"
+
+[tool.hatch.build.targets.wheel]
+sources = ["."]
+only-include = ["server.py"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"server.py" = "mbank_parser_mcp.py"
+
+[tool.hatch.build.targets.sdist]
+include = ["server.py", "README.md", "LICENSE", "SECURITY.md", "pyproject.toml"]
