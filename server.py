@@ -29,9 +29,10 @@ from collections import defaultdict
 from decimal import Decimal, InvalidOperation
 from typing import Any
 
+from mcp import types
 from mcp.server import Server
 from mcp.server.stdio import stdio_server
-from mcp.types import TextContent, Tool
+from mcp.types import CallToolResult, ListToolsResult, TextContent, Tool
 
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 AMOUNT_RE = re.compile(r"^\s*(-?)\s*([\d\s ]+),(\d{2})\s*([A-Z]{3})?\s*$")
@@ -218,8 +219,7 @@ _FILTER_PROPERTIES = {
 }
 
 
-@server.list_tools()
-async def list_tools() -> list[Tool]:
+async def _list_tools() -> list[Tool]:
     return [
         Tool(
             name="read_statement_header",
@@ -273,8 +273,7 @@ async def list_tools() -> list[Tool]:
     ]
 
 
-@server.call_tool()
-async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
+async def _call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
     if name == "read_statement_header":
         parsed = _parse_file(arguments["file_path"])
         header = dict(parsed["header"])
@@ -338,6 +337,18 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         }, ensure_ascii=False, indent=2))]
 
     raise ValueError(f"Unknown tool: {name}")
+
+
+async def on_list_tools(ctx, params) -> ListToolsResult:
+    return ListToolsResult(tools=await _list_tools())
+
+
+async def on_call_tool(ctx, params) -> CallToolResult:
+    return CallToolResult(content=await _call_tool(params.name, params.arguments or {}))
+
+
+server.add_request_handler("tools/list", types.PaginatedRequestParams, on_list_tools)
+server.add_request_handler("tools/call", types.CallToolRequestParams, on_call_tool)
 
 
 async def main():
