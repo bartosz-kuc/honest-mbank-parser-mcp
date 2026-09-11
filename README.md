@@ -38,7 +38,7 @@ Amounts come back as signed floats (negative = expense), currency separate. Poli
 ## Setup
 
 ```bash
-git clone https://github.com/bartosz-kuc/mbank-parser-mcp.git
+git clone https://github.com/bartosz-kuc/honest-mbank-parser-mcp.git
 cd mbank-parser-mcp
 python3 -m venv venv
 ./venv/bin/pip install -r requirements.txt

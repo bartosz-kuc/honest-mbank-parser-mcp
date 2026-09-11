@@ -27,9 +27,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/bartosz-kuc/mbank-parser-mcp"
-Repository = "https://github.com/bartosz-kuc/mbank-parser-mcp"
-Issues = "https://github.com/bartosz-kuc/mbank-parser-mcp/issues"
+Homepage = "https://github.com/bartosz-kuc/honest-mbank-parser-mcp"
+Repository = "https://github.com/bartosz-kuc/honest-mbank-parser-mcp"
+Issues = "https://github.com/bartosz-kuc/honest-mbank-parser-mcp/issues"
 
 [project.scripts]
 mbank-parser-mcp = "mbank_parser_mcp:sync_main"

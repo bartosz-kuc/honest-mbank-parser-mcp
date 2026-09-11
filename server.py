@@ -15,7 +15,7 @@ across statement types and OCR-lite extraction is unreliable. Use the CSV
 export from the mBank web app ("Historia" → "Eksportuj do CSV").
 
 Author: Bartosz Kuć <firma@bartosza.pl>
-Repo:   https://github.com/bartosz-kuc/mbank-parser-mcp
+Repo:   https://github.com/bartosz-kuc/honest-mbank-parser-mcp
 License: MIT
 """
 

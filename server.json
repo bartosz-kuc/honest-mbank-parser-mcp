@@ -3,7 +3,7 @@
   "name": "mbank-parser-mcp",
   "description": "Local MCP server that parses mBank CSV operation exports — fully offline, no bank connection.",
   "repository": {
-    "url": "https://github.com/bartosz-kuc/mbank-parser-mcp",
+    "url": "https://github.com/bartosz-kuc/honest-mbank-parser-mcp",
     "source": "github"
   },
   "version": "0.1.0",
