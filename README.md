@@ -39,10 +39,12 @@ Amounts come back as signed floats (negative = expense), currency separate. Poli
 
 ```bash
 git clone https://github.com/bartosz-kuc/honest-mbank-parser-mcp.git
-cd mbank-parser-mcp
+cd honest-mbank-parser-mcp
 python3 -m venv venv
 ./venv/bin/pip install -r requirements.txt
 ```
+
+On Windows use `python` instead of `python3`, and `venv\Scripts\pip` and `venv\Scripts\python` instead of `venv/bin/pip` and `venv/bin/python` (here and in the configs below).
 
 Register with Claude Code:
 
