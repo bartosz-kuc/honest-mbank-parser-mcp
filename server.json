@@ -6,13 +6,5 @@
     "url": "https://github.com/bartosz-kuc/honest-mbank-parser-mcp",
     "source": "github"
   },
-  "version": "0.1.0",
-  "packages": [
-    {
-      "registry_name": "pypi",
-      "name": "mbank-parser-mcp",
-      "version": "0.1.0",
-      "runtime_hint": "uvx"
-    }
-  ]
+  "version": "0.1.0"
 }
